@@ -1,7 +1,14 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.IllegalArgumentException;
+
 public class HandTest {
+
+    @Test
+    public void constructor_identicalCards(){
+        assertThrows(IllegalArgumentException.class, () -> {new Hand(Card.ACE_CLUB, Card.ACE_CLUB);});
+    }
 
     @Test
     public void toString_offsuit(){

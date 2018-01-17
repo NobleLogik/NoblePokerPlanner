@@ -1,8 +1,12 @@
+import java.lang.IllegalArgumentException;
+
 public class Hand{
 
     private Card c1, c2;
 
     public Hand(Card c1, Card c2){
+        if(c1.equals(c2)) throw new IllegalArgumentException("Hand cannot be constructed with two of the same card");
+
         // place cards in descending order
         Value v1 = c1.getValue();
         Value v2 = c2.getValue();

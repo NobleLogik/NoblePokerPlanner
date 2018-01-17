@@ -11,6 +11,15 @@ public class HandTest {
     }
 
     @Test
+    public void equals_sample(){
+        Hand h1 = new Hand(Card.SIX_HEART, Card.FOUR_SPADE);
+        Hand h2 = new Hand(Card.ACE_SPADE, Card.ACE_CLUB);
+
+        assertTrue(h1.equals(h1));
+        assertFalse(h1.equals(h2));
+    }
+
+    @Test
     public void toString_sample(){
         Hand h = new Hand(Card.SIX_HEART, Card.FOUR_SPADE);
         assertEquals("6h4s", h.toString());

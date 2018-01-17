@@ -4,6 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SimpleHandTest{
 
     @Test
+    public void equals_sample(){
+        SimpleHand h1 = new SimpleHand(Card.SIX_HEART, Card.FOUR_SPADE);
+        SimpleHand h2 = new SimpleHand(Card.ACE_SPADE, Card.ACE_CLUB);
+
+        assertTrue(h1.equals(h1));
+        assertFalse(h1.equals(h2));
+    }
+    @Test
     public void toString_offsuit(){
         SimpleHand h = new SimpleHand(Card.QUEEN_DIAMOND, Card.FIVE_HEART);
         assertEquals("Q5o", h.toString());

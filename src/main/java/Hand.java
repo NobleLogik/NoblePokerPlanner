@@ -21,6 +21,10 @@ public class Hand{
         }
     }
 
+    public boolean equals(Hand h){
+        return this.c1.equals(h.c1) && this.c2.equals(h.c2);
+    }
+
     public String toString(){
         return this.c1.toString() + this.c2.toString();
     }

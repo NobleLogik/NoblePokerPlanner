@@ -1,0 +1,37 @@
+// JUnit5 Gradle plugin must be declared in this buildscript block
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
+    }
+}
+
+apply plugin: 'org.junit.platform.gradle.plugin'
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+// JUnit5
+  testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.0'
+  testCompile 'org.junit.jupiter:junit-jupiter-params:5.0.0'
+  testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.0.0'
+
+// SLF4J
+  // Main SLF4J library
+  compile 'org.slf4j:slf4j-api:1.7.25'
+
+  // Routing from SLF4J to Log4j2
+  compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.10.0'
+
+// Log4j2
+  compile 'org.apache.logging.log4j:log4j-core:2.10.0'
+  compile 'org.apache.logging.log4j:log4j-api:2.10.0'
+}
+
+mainClassName = 'App'

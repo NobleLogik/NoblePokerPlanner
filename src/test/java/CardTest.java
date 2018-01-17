@@ -5,6 +5,6 @@ public class CardTest{
 
     @Test
     public void toString_sample(){
-        assertEquals(Card.ACE_CLUB.toString(), "Ac");
+        assertEquals("Ac", Card.ACE_CLUB.toString());
     }
 }

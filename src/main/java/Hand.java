@@ -10,12 +10,12 @@ public class Hand{
         // place cards in descending order
         Value v1 = c1.getValue();
         Value v2 = c2.getValue();
-        if(v1.compareTo(v2) < 0){
-            // v2 > v1,
+        boolean cond1 = v1.compareTo(v2) < 0; // c2 has higher value than c1
+        boolean cond2 = v1.equals(v2) && c1.getSuit().compareTo(c2.getSuit()) < 0; // same value, but c2 has "higher" suit than c1
+        if(cond1 || cond2){
             this.c1 = c2;
             this.c2 = c1;
         }else{
-            // v1 >= v2
             this.c1 = c1;
             this.c2 = c2;
         }

@@ -21,4 +21,10 @@ public class HandTest {
         Hand h = new Hand(Card.TWO_CLUB, Card.ACE_DIAMOND);
         assertEquals(h.toString(), "Ad2c");
     }
+
+    @Test
+    public void toString_orderSuitIfSameValue(){
+        Hand h = new Hand(Card.ACE_SPADE, Card.ACE_CLUB);
+        assertEquals(h.toString(), "AcAs");
+    }
 }

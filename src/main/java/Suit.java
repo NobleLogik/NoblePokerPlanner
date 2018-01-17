@@ -1,5 +1,5 @@
 public enum Suit{
-    CLUB('c'), DIAMOND('d'), HEART('h'), SPADE('s');
+    SPADE('s'), HEART('h'), DIAMOND('d'), CLUB('c');
 
     private char c;
 

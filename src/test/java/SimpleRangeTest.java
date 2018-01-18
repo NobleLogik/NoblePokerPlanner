@@ -6,7 +6,7 @@ public class SimpleRangeTest{
 
     @Test
     public void add_sample(){
-        SimpleHand h = new SimpleHand(Card.JACK_HEART, Card.EIGHT_HEART);
+        SimpleHand h = new SimpleHand(Value.QUEEN, Value.FIVE, true);
         SimpleRange r = new SimpleRange();
 
         assumeFalse(r.contains(h));
@@ -16,7 +16,7 @@ public class SimpleRangeTest{
 
     @Test
     public void add_alreadyContained(){
-        SimpleHand h = new SimpleHand(Card.JACK_HEART, Card.EIGHT_HEART);
+        SimpleHand h = new SimpleHand(Value.QUEEN, Value.FIVE, true);
         SimpleRange r = new SimpleRange();
 
         r.add(h);
@@ -27,7 +27,7 @@ public class SimpleRangeTest{
 
     @Test
     public void remove_sample(){
-        SimpleHand h = new SimpleHand(Card.JACK_HEART, Card.EIGHT_HEART);
+        SimpleHand h = new SimpleHand(Value.QUEEN, Value.FIVE, true);
         SimpleRange r = new SimpleRange();
 
         r.add(h);
@@ -38,7 +38,7 @@ public class SimpleRangeTest{
 
     @Test
     public void remove_alreadyNotContained(){
-        SimpleHand h = new SimpleHand(Card.JACK_HEART, Card.EIGHT_HEART);
+        SimpleHand h = new SimpleHand(Value.QUEEN, Value.FIVE, true);
         SimpleRange r = new SimpleRange();
 
         assumeFalse(r.contains(h));
@@ -48,7 +48,7 @@ public class SimpleRangeTest{
 
     @Test
     public void contains_logic(){
-        SimpleHand h = new SimpleHand(Card.JACK_HEART, Card.EIGHT_HEART);
+        SimpleHand h = new SimpleHand(Value.QUEEN, Value.FIVE, true);
         SimpleRange r = new SimpleRange();
 
         assertFalse(r.contains(h));

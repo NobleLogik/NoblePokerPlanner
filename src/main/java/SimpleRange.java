@@ -19,4 +19,22 @@ public class SimpleRange{
     public boolean contains(SimpleHand h){
         return this.range.contains(h);
     }
+
+    public int size(){
+        int size = 0;
+        for(SimpleHand h : this.range){
+            switch(h.getSuitedness()){
+            case POCKET:
+                size += 6;
+                break;
+            case SUITED:
+                size += 4;
+                break;
+            case OFFSUIT:
+                size += 12;
+                break;
+            }
+        }
+        return size;
+    }
 }

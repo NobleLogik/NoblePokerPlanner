@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class SimpleHand{
 
-    private enum Suitedness {POCKET, OFFSUIT, SUITED;}
+    public enum Suitedness {POCKET, OFFSUIT, SUITED;}
     private Value v1, v2;
     private Suitedness suited;
 
@@ -44,6 +44,10 @@ public class SimpleHand{
                 this.suited = Suitedness.OFFSUIT;
             }
         }
+    }
+
+    public Suitedness getSuitedness(){
+        return this.suited;
     }
 
     public boolean equals(SimpleHand h){

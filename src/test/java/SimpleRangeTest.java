@@ -58,4 +58,43 @@ public class SimpleRangeTest{
         assertFalse(r.contains(h));
     }
 
+    @Test
+    public void size_pocket(){
+        SimpleHand h = new SimpleHand(Value.ACE, Value.ACE);
+        SimpleRange r = new SimpleRange();
+
+        r.add(h);
+        assertEquals(6, r.size());
+    }
+
+    @Test
+    public void size_offsuit(){
+        SimpleHand h = new SimpleHand(Value.ACE, Value.THREE, false);
+        SimpleRange r = new SimpleRange();
+
+        r.add(h);
+        assertEquals(12, r.size());
+    }
+
+    @Test
+    public void size_suited(){
+        SimpleHand h = new SimpleHand(Value.ACE, Value.THREE, true);
+        SimpleRange r = new SimpleRange();
+
+        r.add(h);
+        assertEquals(4, r.size());
+    }
+
+    @Test
+    public void size_sum(){
+        SimpleHand h1 = new SimpleHand(Value.ACE, Value.ACE);
+        SimpleHand h2 = new SimpleHand(Value.ACE, Value.THREE, false);
+        SimpleHand h3 = new SimpleHand(Value.ACE, Value.THREE, true);
+        SimpleRange r = new SimpleRange();
+
+        r.add(h1);
+        r.add(h2);
+        r.add(h3);
+        assertEquals(22, r.size());
+    }
 }

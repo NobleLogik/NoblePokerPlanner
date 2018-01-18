@@ -37,4 +37,24 @@ public class SimpleRange{
         }
         return size;
     }
+
+    public static SimpleRange genFullRange(){
+        SimpleRange r = new SimpleRange();
+        for(Value v1 : Value.values()){
+            for(Value v2 : Value.values()){
+                if(v1.compareTo(v2) >= 0){
+                    if(v1.equals(v2)){
+                        SimpleHand h = new SimpleHand(v1, v2);
+                        r.add(h);
+                    }else{
+                        SimpleHand h1 = new SimpleHand(v1, v2, false);
+                        SimpleHand h2 = new SimpleHand(v1, v2, true);
+                        r.add(h1);
+                        r.add(h2);
+                    }
+                }
+            }
+        }
+        return r;
+    }
 }

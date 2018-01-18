@@ -97,4 +97,9 @@ public class SimpleRangeTest{
         r.add(h3);
         assertEquals(22, r.size());
     }
+
+    @Test
+    public void genFullRange_size(){
+        assertEquals(1326, SimpleRange.genFullRange().size());
+    }
 }

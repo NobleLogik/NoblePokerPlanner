@@ -1,12 +1,40 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.IllegalArgumentException;
+
 public class SimpleHandTest{
 
     @Test
-    public void equals_sample(){
-        SimpleHand h1 = new SimpleHand(Value.ACE, Value.KING, false);
-        SimpleHand h2 = new SimpleHand(Value.EIGHT, Value.FIVE, true);
+    public void constructor_illegalArgs(){
+        assertThrows(IllegalArgumentException.class, () -> {new SimpleHand(Value.ACE, Value.ACE, true);});
+        assertThrows(IllegalArgumentException.class, () -> {new SimpleHand(Value.ACE, Value.TWO);});
+    }
+
+    @Test
+    public void equals_value(){
+        SimpleHand h1 = new SimpleHand(Value.ACE, Value.TEN, true);
+        SimpleHand h2 = new SimpleHand(Value.ACE, Value.QUEEN, true);
+        SimpleHand h3 = new SimpleHand(Value.KING, Value.TEN, true);
+
+        assertTrue(h1.equals(h1));
+        assertFalse(h1.equals(h2));
+        assertFalse(h1.equals(h3));
+    }
+
+    @Test
+    public void equals_suitedness(){
+        SimpleHand h1 = new SimpleHand(Value.ACE, Value.TEN, true);
+        SimpleHand h2 = new SimpleHand(Value.ACE, Value.TEN, false);
+
+        assertTrue(h1.equals(h1));
+        assertFalse(h1.equals(h2));
+    }
+
+    @Test
+    public void equals_pairVsNonPair(){
+        SimpleHand h1 = new SimpleHand(Value.ACE, Value.ACE);
+        SimpleHand h2 = new SimpleHand(Value.KING, Value.TEN, false);
 
         assertTrue(h1.equals(h1));
         assertFalse(h1.equals(h2));

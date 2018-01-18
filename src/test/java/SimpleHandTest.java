@@ -31,6 +31,20 @@ public class SimpleHandTest{
         assertFalse(h1.equals(h2));
     }
 
+    @Test void getValues_sample(){
+        SimpleHand h = new SimpleHand(Value.QUEEN, Value.FIVE, false);
+
+        assertEquals(Value.QUEEN, h.getValues()[0]);
+        assertEquals(Value.FIVE, h.getValues()[1]);
+    }
+
+    @Test void getValues_highestFirst(){
+        SimpleHand h = new SimpleHand(Value.FIVE, Value.QUEEN, false);
+
+        assertEquals(Value.QUEEN, h.getValues()[0]);
+        assertEquals(Value.FIVE, h.getValues()[1]);
+    }
+
     @Test
     public void equals_pairVsNonPair(){
         SimpleHand h1 = new SimpleHand(Value.ACE, Value.ACE);
@@ -56,11 +70,5 @@ public class SimpleHandTest{
     public void toString_pocket(){
         SimpleHand h = new SimpleHand(Value.THREE, Value.THREE);
         assertEquals("33", h.toString());
-    }
-
-    @Test
-    public void toString_highestFirst(){
-        SimpleHand h = new SimpleHand(Value.FIVE, Value.QUEEN, true);
-        assertEquals("Q5s", h.toString());
     }
 }

@@ -50,6 +50,13 @@ public class SimpleHand{
         return this.suited;
     }
 
+    public Value[] getValues(){
+        Value[] v = new Value[2];
+        v[0] = this.v1;
+        v[1] = this.v2;
+        return v;
+    }
+
     public boolean equals(SimpleHand h){
         return this.v1.equals(h.v1) && this.v2.equals(h.v2) && this.suited.equals(h.suited);
     }

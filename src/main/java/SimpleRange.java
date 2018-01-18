@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class SimpleRange{
 
@@ -18,6 +19,10 @@ public class SimpleRange{
 
     public boolean contains(SimpleHand h){
         return this.range.contains(h);
+    }
+
+    public Iterator<SimpleHand> iterator(){
+        return this.range.iterator();
     }
 
     public int size(){

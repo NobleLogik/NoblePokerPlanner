@@ -35,8 +35,8 @@ public class SimpleRangeMatrix extends JPanel{
             c.gridx = GRID_SIZE - val[0].ordinal();
             c.gridy = GRID_SIZE - val[1].ordinal();
 
-            // Reverse row/col for offsuit hands
-            if(h.getSuitedness().equals(SimpleHand.Suitedness.OFFSUIT)){
+            // Reverse row/col for suited hands
+            if(h.getSuitedness().equals(SimpleHand.Suitedness.SUITED)){
                 int tmp = c.gridx;
                 c.gridx = c.gridy;
                 c.gridy = tmp;

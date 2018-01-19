@@ -53,7 +53,7 @@ public class SimpleRangeMatrix extends JPanel{
         Iterator<SimpleHand> it = SimpleRange.genFullRange().iterator();
         while(it.hasNext()){
             SimpleHand h = it.next();
-            MatrixButton b = new MatrixButton();
+            MatrixButton b = new MatrixButton(h);
             map.put(h, b);
         }
 

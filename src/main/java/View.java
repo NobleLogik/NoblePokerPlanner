@@ -12,6 +12,10 @@ public class View{
         this.frame.setVisible(true);
     }
 
+    public void notifyModelChanged(){
+        switchToSimpleRange();
+    }
+
     private void switchToSimpleRange(){
         SimpleRange r = this.mvc.getModel().getSimpleRange();
         this.frame.setContentPane(new SimpleRangeMatrix(r));

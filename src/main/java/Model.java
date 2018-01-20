@@ -11,4 +11,8 @@ public class Model{
     public SimpleRange getSimpleRange(){
         return this.range;
     }
+
+    private void notifyView(){
+        this.mvc.getView().notifyModelChanged();
+    }
 }

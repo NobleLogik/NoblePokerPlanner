@@ -7,4 +7,8 @@ public class Model{
         this.mvc = mvc;
         this.range = new SimpleRange();
     }
+
+    public SimpleRange getSimpleRange(){
+        return this.range;
+    }
 }

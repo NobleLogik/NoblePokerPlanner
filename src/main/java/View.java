@@ -13,7 +13,8 @@ public class View{
     }
 
     private void switchToSimpleRange(){
-        this.frame.setContentPane(new SimpleRangeMatrix());
+        SimpleRange r = this.mvc.getModel().getSimpleRange();
+        this.frame.setContentPane(new SimpleRangeMatrix(r));
     }
 
 }

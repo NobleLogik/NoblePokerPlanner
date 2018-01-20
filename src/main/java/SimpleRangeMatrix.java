@@ -11,10 +11,20 @@ public class SimpleRangeMatrix extends JPanel{
 
     private HashMap<SimpleHand, MatrixButton> buttonMap;
 
-    public SimpleRangeMatrix(){
+    public SimpleRangeMatrix(SimpleRange r){
         super();
+
+        // Generate empty matrix
         this.buttonMap = genButtonMap();
         placeButtons();
+
+        // Fill the matrix
+        Iterator<SimpleHand> it = r.iterator();
+        while(it.hasNext()){
+            SimpleHand h = it.next();
+            MatrixButton b = this.buttonMap.get(h);
+            b.setActive(true);
+        }
     }
 
     private void placeButtons(){

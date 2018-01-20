@@ -7,18 +7,36 @@ import java.awt.FontMetrics;
 
 public class MatrixButton extends JPanel{
 
+    private final Color OFF = Color.GRAY;
+    private final Color ON = Color.RED;
     private SimpleHand hand;
+    private boolean active;
 
     public MatrixButton(SimpleHand hand){
         super();
         this.hand = hand;
+        this.active = false;
+    }
+
+    public void setActive(boolean active){
+        this.active = active;
+        this.repaint();
     }
 
     protected void paintComponent(Graphics g){
         // draw contour
         g.drawRect(0, 0, this.getWidth()-1, this.getHeight()-1); // -1 necessary to stay inbounds
 
+        // fill color
+        if(active){
+            g.setColor(ON);
+        }else{
+            g.setColor(OFF);
+        }
+        g.fillRect(1, 1, this.getWidth()-2, this.getHeight()-2); // -2 necessary to not fill over contour
+
         // draw text
+        g.setColor(Color.BLACK);
         int[] coord = findCoordToCenterText(g);
         g.drawString(hand.toString(), coord[0], coord[1]);
     }

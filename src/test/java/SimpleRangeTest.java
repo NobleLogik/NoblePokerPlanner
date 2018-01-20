@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.*;
 
+import java.lang.IllegalStateException;
+
 public class SimpleRangeTest{
 
     @Test
@@ -21,8 +23,7 @@ public class SimpleRangeTest{
 
         r.add(h);
         assumeTrue(r.contains(h));
-        r.add(h);
-        assertTrue(r.contains(h));
+        assertThrows(IllegalStateException.class, () -> r.add(h));
     }
 
     @Test
@@ -42,8 +43,7 @@ public class SimpleRangeTest{
         SimpleRange r = new SimpleRange();
 
         assumeFalse(r.contains(h));
-        r.remove(h);
-        assertFalse(r.contains(h));
+        assertThrows(IllegalStateException.class, () -> r.remove(h));
     }
 
     @Test

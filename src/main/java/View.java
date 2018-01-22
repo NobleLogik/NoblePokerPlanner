@@ -8,6 +8,9 @@ public class View{
     public View(MVC mvc){
         this.mvc = mvc;
         this.frame = new AppFrame();
+    }
+
+    public void init(){
         switchToSimpleRange();
         this.frame.setVisible(true);
     }

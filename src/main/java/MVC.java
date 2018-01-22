@@ -9,6 +9,8 @@ public class MVC{
         this.model = new Model(this);
         this.view = new View(this);
         this.controller = new Controller(this);
+
+        this.view.init();
     }
 
     public Model getModel(){

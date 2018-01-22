@@ -5,22 +5,27 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.FontMetrics;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
+
 public class MatrixButton extends JPanel{
 
     private final Color OFF = Color.GRAY;
     private final Color ON = Color.RED;
     private SimpleHand hand;
+    private Controller control;
     private boolean active;
 
-    public MatrixButton(SimpleHand hand){
+    public MatrixButton(Controller control, SimpleHand hand){
         super();
+        this.control = control;
         this.hand = hand;
         this.active = false;
+        this.addMouseListener(new MatrixButtonListener());
     }
 
     public void setActive(boolean active){
         this.active = active;
-        this.repaint();
     }
 
     protected void paintComponent(Graphics g){
@@ -49,5 +54,16 @@ public class MatrixButton extends JPanel{
         coord[0] = (this.getWidth() - fm.stringWidth(hand.toString()))/2;
         coord[1] = (this.getHeight() - fm.getHeight())/2 + fm.getAscent();
         return coord;
+    }
+
+    private class MatrixButtonListener extends MouseAdapter{
+
+        public MatrixButtonListener(){
+            super();
+        }
+
+        public void mouseClicked(MouseEvent e){
+            MatrixButton.this.control.clickOnSimpleHand(MatrixButton.this.hand);
+        }
     }
 }

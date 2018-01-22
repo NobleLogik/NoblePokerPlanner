@@ -5,4 +5,9 @@ public class Controller{
     public Controller(MVC mvc){
         this.mvc = mvc;
     }
+
+    public void clickOnSimpleHand(SimpleHand h){
+        this.mvc.getModel().addOrRemoveSimpleHand(h);
+    }
+
 }

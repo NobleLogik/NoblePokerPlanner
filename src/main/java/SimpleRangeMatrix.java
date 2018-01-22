@@ -10,21 +10,14 @@ import java.util.Iterator;
 public class SimpleRangeMatrix extends JPanel{
 
     private HashMap<SimpleHand, MatrixButton> buttonMap;
+    private SimpleRange range;
 
-    public SimpleRangeMatrix(SimpleRange r){
+    public SimpleRangeMatrix(Controller control, SimpleRange range){
         super();
+        this.range = range;
+        this.buttonMap = genButtonMap(control);
 
-        // Generate empty matrix
-        this.buttonMap = genButtonMap();
         placeButtons();
-
-        // Fill the matrix
-        Iterator<SimpleHand> it = r.iterator();
-        while(it.hasNext()){
-            SimpleHand h = it.next();
-            MatrixButton b = this.buttonMap.get(h);
-            b.setActive(true);
-        }
     }
 
     private void placeButtons(){
@@ -57,13 +50,14 @@ public class SimpleRangeMatrix extends JPanel{
         }
     }
 
-    private HashMap<SimpleHand, MatrixButton> genButtonMap(){
+    private HashMap<SimpleHand, MatrixButton> genButtonMap(Controller control){
         HashMap<SimpleHand, MatrixButton> map = new HashMap<SimpleHand, MatrixButton>();
 
         Iterator<SimpleHand> it = SimpleRange.genFullRange().iterator();
         while(it.hasNext()){
             SimpleHand h = it.next();
-            MatrixButton b = new MatrixButton(h);
+            MatrixButton b = new MatrixButton(control, h);
+            b.setActive(this.range.contains(h));
             map.put(h, b);
         }
 

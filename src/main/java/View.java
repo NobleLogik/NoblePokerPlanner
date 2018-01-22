@@ -1,4 +1,6 @@
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.util.Iterator;
 
 public class View{
 
@@ -21,7 +23,13 @@ public class View{
 
     private void switchToSimpleRange(){
         SimpleRange r = this.mvc.getModel().getSimpleRange();
-        this.frame.setContentPane(new SimpleRangeMatrix(r));
+        Controller c = this.mvc.getController();
+
+        JPanel contentPane = (JPanel) this.frame.getContentPane();
+        contentPane.removeAll();
+        contentPane.add(new SimpleRangeMatrix(c, r));
+        contentPane.revalidate();
+        contentPane.repaint();
     }
 
 }

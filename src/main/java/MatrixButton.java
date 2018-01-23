@@ -1,3 +1,6 @@
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+
 import javax.swing.JPanel;
 
 import java.awt.Graphics;
@@ -10,6 +13,7 @@ import java.awt.event.MouseAdapter;
 
 public class MatrixButton extends JPanel{
 
+    private final Logger log = LoggerFactory.getLogger(MatrixButton.class);
     private final Color OFF = Color.GRAY;
     private final Color ON = Color.RED;
     private SimpleHand hand;
@@ -34,6 +38,7 @@ public class MatrixButton extends JPanel{
 
         // fill color
         if(active){
+            log.trace("Button for hand {} is active", this.hand.toString());
             g.setColor(ON);
         }else{
             g.setColor(OFF);
@@ -63,6 +68,7 @@ public class MatrixButton extends JPanel{
         }
 
         public void mouseClicked(MouseEvent e){
+            log.debug("Click event on button for hand {}", hand.toString());
             MatrixButton.this.control.clickOnSimpleHand(MatrixButton.this.hand);
         }
     }

@@ -1,3 +1,6 @@
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -9,15 +12,17 @@ import java.util.Iterator;
 
 public class SimpleRangeMatrix extends JPanel{
 
+    private final Logger log = LoggerFactory.getLogger(SimpleRangeMatrix.class);
     private HashMap<SimpleHand, MatrixButton> buttonMap;
     private SimpleRange range;
 
     public SimpleRangeMatrix(Controller control, SimpleRange range){
         super();
+        log.trace("Start of matrix construction");
         this.range = range;
         this.buttonMap = genButtonMap(control);
-
         placeButtons();
+        log.trace("End of matrix construction");
     }
 
     private void placeButtons(){

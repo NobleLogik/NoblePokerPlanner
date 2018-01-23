@@ -1,0 +1,7 @@
+PokerPlanner v0.1.0 (23/01/18)
+------------------------------
+
+New Features
+------------
+* Visualize a range of hands with a hand matrix
+* Add or remove hands from a range by clicking on them

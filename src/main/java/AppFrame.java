@@ -6,7 +6,7 @@ import javax.swing.JMenuItem;
 public class AppFrame extends JFrame{
 
     final String DEV_NAME = "NobleLogik";
-    final String VERSION = "0.1.0-dev";
+    final String VERSION = "0.1.0";
 
     public AppFrame(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

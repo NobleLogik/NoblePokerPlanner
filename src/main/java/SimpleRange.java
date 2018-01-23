@@ -10,6 +10,7 @@ public class SimpleRange{
 
     private final Logger log = LoggerFactory.getLogger(SimpleRange.class);
     private HashSet<SimpleHand> range;
+    static boolean doLog = true;
 
     public SimpleRange(){
         this.range = new HashSet<SimpleHand>();
@@ -21,7 +22,7 @@ public class SimpleRange{
             throw new IllegalStateException("Cannot add " + h.toString() + "because it is already in the SimpleRange");
         }
         this.range.add(h);
-        log.debug("Added hand {}", h.toString());
+        if(SimpleRange.doLog) log.debug("Added hand {}", h.toString());
     }
 
     public void remove(SimpleHand h){
@@ -66,6 +67,7 @@ public class SimpleRange{
     }
 
     public static SimpleRange genFullRange(){
+        SimpleRange.doLog = false;
         SimpleRange r = new SimpleRange();
         for(Value v1 : Value.values()){
             for(Value v2 : Value.values()){
@@ -82,6 +84,7 @@ public class SimpleRange{
                 }
             }
         }
+        SimpleRange.doLog = true;
         return r;
     }
 
